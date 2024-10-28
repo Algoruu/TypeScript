@@ -18,7 +18,7 @@ var MyStudent = /** @class */ (function () {
     MyStudent.prototype.setName = function (name) {
         this.stdName = name;
         console.log('이름 설정 : ' + this.stdName);
-    }; // 재정의한 메소드
+    }; // 재정의한 메소드(오버라이딩)
     return MyStudent;
 }());
 ;
