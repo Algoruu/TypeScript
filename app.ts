@@ -1,5 +1,11 @@
-function logName(name : string) {
-    console.log(name);
+let student = {
+    name : 'john',
+    course : 'typescript',
+    score : 100,
+    grade : function(){
+        console.log('A');
+    }
 }
 
-logName('kny');
+student.name = 'kim';
+student.score = 200;
