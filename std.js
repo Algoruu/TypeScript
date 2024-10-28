@@ -6,17 +6,35 @@ var gender = 'female';
 var course = 'Typescript';
 var completed = false;
 ;
-function getInfo(id) {
-    return {
-        stdId: id,
-        stdName: 'kim',
-        age: 25,
-        gender: 'female',
-        course: 'javascript',
-        completed: true
-    };
-}
+var MyStudent = /** @class */ (function () {
+    function MyStudent() {
+        this.stdId = 91011;
+        this.stdName = 'choi';
+        this.age = 30;
+        this.gender = 'male';
+        this.course = 'node.js';
+        this.completed = true;
+    }
+    MyStudent.prototype.setName = function (name) {
+        this.stdName = name;
+        console.log('이름 설정 : ' + this.stdName);
+    }; // 재정의한 메소드
+    return MyStudent;
+}());
 ;
+var myInstance = new MyStudent(); // 객체 생성
+myInstance.setName('엘리스'); //객체 메모리의 주소값을 갖고 있음
+// function getInfo(id : number) : Student
+// {
+//     return {
+//         stdId : id,
+//         stdName : 'kim',
+//         age : 25,
+//         gender : 'female',
+//         course : 'javascript',
+//         completed : true
+//     };
+// };
 var std = ({
     stdId: 91011,
     stdName: 'choi',

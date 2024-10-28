@@ -9,24 +9,45 @@ let completed : boolean = false;
 
 interface Student{
     stdId : number;
-    stdName : string;
-    age : number;
-    gender : string;
-    course : string;
-    completed : boolean;    
+    stdName? : string;
+    age? : number;
+    gender? : string;
+    course? : string;
+    completed? : boolean;
+    // setName(name : string) : void;
+    setName : (name : string) => void;
+    getName : () => string;
 };
 
-function getInfo(id : number) : Student
-{
-    return {
-        stdId : id,
-        stdName : 'kim',
-        age : 25,
-        gender : 'female',
-        course : 'javascript',
-        completed : true
-    };
+class MyStudent implements Student{
+    stdId = 91011;
+    stdName = 'choi';
+    age = 30;
+    gender = 'male';
+    course = 'node.js';
+    completed = true;
+
+    setName(name : string) : void{
+        this.stdName = name;
+        console.log('이름 설정 : ' + this.stdName);
+    } // 재정의한 메소드(오버라이딩)
 };
+
+const myInstance = new MyStudent(); // 객체 생성
+myInstance.setName('엘리스');  //객체 메모리의 주소값을 갖고 있음
+
+
+// function getInfo(id : number) : Student
+// {
+//     return {
+//         stdId : id,
+//         stdName : 'kim',
+//         age : 25,
+//         gender : 'female',
+//         course : 'javascript',
+//         completed : true
+//     };
+// };
 
 let std = ({
     stdId : 91011,
