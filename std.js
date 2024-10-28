@@ -6,12 +6,20 @@ var gender = 'female';
 var course = 'Typescript';
 var completed = false;
 ;
+// 열거형 : 사용자 정의 타입
+var GenderType;
+(function (GenderType) {
+    GenderType["Male"] = "male";
+    GenderType["Female"] = "female";
+    GenderType["GenderNeutral"] = "neutral";
+})(GenderType || (GenderType = {}));
+;
 var MyStudent = /** @class */ (function () {
     function MyStudent() {
         this.stdId = 91011;
         this.stdName = 'choi';
         this.age = 30;
-        this.gender = 'male';
+        this.gender = GenderType;
         this.course = 'node.js';
         this.completed = true;
     }
@@ -24,22 +32,22 @@ var MyStudent = /** @class */ (function () {
 ;
 var myInstance = new MyStudent(); // 객체 생성
 myInstance.setName('엘리스'); //객체 메모리의 주소값을 갖고 있음
-// function getInfo(id : number) : Student
-// {
-//     return {
-//         stdId : id,
-//         stdName : 'kim',
-//         age : 25,
-//         gender : 'female',
-//         course : 'javascript',
-//         completed : true
-//     };
-// };
+function getInfo(id) {
+    return {
+        stdId: id,
+        stdName: 'kim',
+        age: 25,
+        gender: GenderType.Female,
+        course: 'javascript',
+        completed: true
+    };
+}
+;
 var std = ({
     stdId: 91011,
     stdName: 'choi',
     age: 30,
-    gender: 'male',
+    gender: GenderType.male,
     course: 'node.js',
     completed: true
 }); // 힙메모리에 저장됨

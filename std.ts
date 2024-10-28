@@ -19,11 +19,18 @@ interface Student{
     getName : () => string;
 };
 
+// 열거형 : 사용자 정의 타입
+enum GenderType{
+    Male = 'male',
+    Female = 'female',
+    GenderNeutral = 'neutral'
+};
+
 class MyStudent implements Student{
     stdId = 91011;
     stdName = 'choi';
     age = 30;
-    gender = 'male';
+    gender = GenderType;
     course = 'node.js';
     completed = true;
 
@@ -37,23 +44,23 @@ const myInstance = new MyStudent(); // 객체 생성
 myInstance.setName('엘리스');  //객체 메모리의 주소값을 갖고 있음
 
 
-// function getInfo(id : number) : Student
-// {
-//     return {
-//         stdId : id,
-//         stdName : 'kim',
-//         age : 25,
-//         gender : 'female',
-//         course : 'javascript',
-//         completed : true
-//     };
-// };
+function getInfo(id : number) : Student
+{
+    return {
+        stdId : id,
+        stdName : 'kim',
+        age : 25,
+        gender : GenderType.Female,
+        course : 'javascript',
+        completed : true
+    };
+};
 
 let std = ({
     stdId : 91011,
     stdName : 'choi',
     age : 30,
-    gender : 'male',
+    gender : GenderType.male,
     course : 'node.js',
     completed : true
 }); // 힙메모리에 저장됨
