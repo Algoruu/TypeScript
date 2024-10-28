@@ -7,10 +7,25 @@ let gender : string = 'female';
 let course : string = 'Typescript';
 let completed : boolean = false;
 
-function getInfo(id : number) : object {
-    return null; //임시로 null 값 부여
-
+interface Student{
+    stdId : number;
+    stdName : string;
+    age : number;
+    gender : string;
+    course : string;
+    completed : boolean;    
 }
+
+function getInfo(id : number) : {
+    stdId : number;
+    stdName : string;
+    age : number;
+    gender : string;
+    course : string;
+    completed : boolean;
+}
+
+
 
 
 
