@@ -16,15 +16,28 @@ var Employee = /** @class */ (function () {
     function Employee(empName, age, empJob) {
         var _this = this;
         this.printEmp = function () {
-            console.log(_this.empName + '의 나이는 ' + _this.age + '이고, 직업은 ' + _this.empJob + '입니다.');
+            console.log(_this._empName + '의 나이는 ' + _this._age + '이고, 직업은 ' + _this._empJob + '입니다.');
         };
-        this.empName = empName; // 자기 자신의 객체
-        this.age = age;
-        this.empJob = empJob;
+        this._empName = empName; // 자기 자신의 객체
+        this._age = age;
+        this._empJob = empJob;
     }
+    Object.defineProperty(Employee.prototype, "empName", {
+        // get/set
+        get: function () {
+            return this._empName;
+        },
+        set: function (val) {
+            this._empName = val;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return Employee;
 }());
+// public private protected
 // 객체 생성
-var employee1 = new Employee('kim');
+var employee1 = new Employee('kim', 30, '소프트웨어개발자');
+employee1.empName = 'lee'; // 접근지정자 적용이 필요함 -> get/set 설정
 // 메소드 호출
 employee1.printEmp();
