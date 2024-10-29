@@ -25,6 +25,6 @@ var Employee = /** @class */ (function () {
     return Employee;
 }());
 // 객체 생성
-var employee1 = new Employee('kim', 30, '소프트웨어개발자');
+var employee1 = new Employee('kim');
 // 메소드 호출
 employee1.printEmp();
