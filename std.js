@@ -73,16 +73,15 @@ function setInfo(student) {
 ;
 setInfo(std); // 이제 오류 없이 작동
 console.log(getInfo(5678));
-// 함수의 데이터 타입 명시(매개변수, 리턴타입)
-// function Plus(a : number, b? : number) : number{
-//     return a + b;
-// }
-var user = {
-    name: 'john',
-    age: 25
-};
 var numStr = '100';
+var item;
 function convertToString(val) {
+    if (typeof val === 'string') {
+        item = 0;
+    }
+    else {
+        item = val;
+    }
     return String(val); //무조건 문자열 변환 출력
 }
 function convertToNumber(val) {

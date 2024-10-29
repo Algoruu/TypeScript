@@ -95,18 +95,26 @@ console.log(getInfo(5678));
 //     return a + b;
 // }
 
-const user : {name : string, age : number} = {
-    name : 'john',
-    age : 25
-};
+// const user : {name : string, age : number} = {
+//     name : 'john',
+//     age : 25
+// };
 
-let numStr : number | string = '100';
+type strOrNum = number | string;
 
-function convertToString(val : number | string):string {
+let numStr : strOrNum = '100';
+let item : number;
+
+function convertToString(val : strOrNum):string {
+    if(typeof val ==='string') {
+        item = 0;
+    }else{
+        item = val;
+    }
     return String(val); //무조건 문자열 변환 출력
 }
 
-function convertToNumber(val : number | string):number {
+function convertToNumber(val : strOrNum):number {
     return Number(val); // 무조건 숫자 변환 출력
 }
 
