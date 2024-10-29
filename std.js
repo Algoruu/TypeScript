@@ -81,5 +81,12 @@ var user = {
     name: 'john',
     age: 25
 };
-var anyVal = 100; // any는 아무 값을 받을 수 있음.
-anyVal = true;
+var numStr = '100';
+function convertToString(val) {
+    return String(val); //무조건 문자열 변환 출력
+}
+function convertToNumber(val) {
+    return Number(val); // 무조건 숫자 변환 출력
+}
+console.log(convertToString(numStr));
+console.log(convertToNumber(numStr));
