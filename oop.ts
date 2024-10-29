@@ -22,8 +22,11 @@ class Employee {
     age : number;
     empJob : string;
 
-    constructor() {
-        
+    constructor(empName : string, age : number, empJob : string) {
+        this.empName = empName; // 자기 자신의 객체
+        this.age = age;
+        this.empJob = empJob;
+
     }
 
     printEmp = () : void => {
@@ -32,12 +35,7 @@ class Employee {
 }
 
 // 객체 생성
-let employee1 = new Employee();
-
-// 초기값 지정
-employee1.empName ='kim';
-employee1.age = 25;
-employee1.empJob = '개발자';
+let employee1 = new Employee('kim', 30, '소프트웨어개발자');
 
 // 메소드 호출
 employee1.printEmp();

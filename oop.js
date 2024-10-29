@@ -13,19 +13,18 @@
 // 멤버함수 == 메소드
 // 클래스 생성
 var Employee = /** @class */ (function () {
-    function Employee() {
+    function Employee(empName, age, empJob) {
         var _this = this;
         this.printEmp = function () {
             console.log(_this.empName + '의 나이는 ' + _this.age + '이고, 직업은 ' + _this.empJob + '입니다.');
         };
+        this.empName = empName; // 자기 자신의 객체
+        this.age = age;
+        this.empJob = empJob;
     }
     return Employee;
 }());
 // 객체 생성
-var employee1 = new Employee();
-// 초기값 지정
-employee1.empName = 'kim';
-employee1.age = 25;
-employee1.empJob = '개발자';
+var employee1 = new Employee('kim', 30, '소프트웨어개발자');
 // 메소드 호출
 employee1.printEmp();
