@@ -38,6 +38,10 @@ class MyStudent implements Student{
         this.stdName = name;
         console.log('이름 설정 : ' + this.stdName);
     } // 재정의한 메소드(오버라이딩)
+
+    getName(): string {
+        return this.stdName ?? '이름이 설정되지 않음';
+    } // 인터페이스 Student에 정의된 getName 메서드 추가 구현
 };
 
 const myInstance = new MyStudent(); // 객체 생성
@@ -52,27 +56,38 @@ function getInfo(id : number) : Student
         age : 25,
         gender : 'female',
         course : 'javascript',
-        completed : true
+        completed : true,
+        setName: (name: string) => {
+            console.log('이름 설정 : ' + name);
+        },
+        getName: () => {
+            return 'kim';
+        }
     };
 };
 
-let std = ({
+let std : Student = ({
     stdId : 91011,
     stdName : 'choi',
     age : 30,
     gender : 'male',
     course : 'node.js',
-    completed : true
+    completed : true,
+    setName: (name: string) => {
+        console.log('이름 설정 : ' + name);
+    },
+    getName: () => {
+        return 'choi';
+    }
 }); // 힙메모리에 저장됨
 
 function setInfo(student : Student) : void{
     console.log(student);
 };
 
-// setInfo(std);
+setInfo(std); // 이제 오류 없이 작동
 
-// console.log(getInfo(5678));
-
+console.log(getInfo(5678));
 
 
 // 함수의 데이터 타입 명시(매개변수, 리턴타입)
@@ -83,4 +98,7 @@ function setInfo(student : Student) : void{
 const user : {name : string, age : number} = {
     name : 'john',
     age : 25
-}
+};
+
+let anyVal : any = 100; // any는 아무 값을 받을 수 있음.
+anyVal = true;

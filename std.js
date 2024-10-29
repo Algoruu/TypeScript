@@ -27,6 +27,10 @@ var MyStudent = /** @class */ (function () {
         this.stdName = name;
         console.log('이름 설정 : ' + this.stdName);
     }; // 재정의한 메소드(오버라이딩)
+    MyStudent.prototype.getName = function () {
+        var _a;
+        return (_a = this.stdName) !== null && _a !== void 0 ? _a : '이름이 설정되지 않음';
+    }; // 인터페이스 Student에 정의된 getName 메서드 추가 구현
     return MyStudent;
 }());
 ;
@@ -39,7 +43,13 @@ function getInfo(id) {
         age: 25,
         gender: 'female',
         course: 'javascript',
-        completed: true
+        completed: true,
+        setName: function (name) {
+            console.log('이름 설정 : ' + name);
+        },
+        getName: function () {
+            return 'kim';
+        }
     };
 }
 ;
@@ -49,14 +59,20 @@ var std = ({
     age: 30,
     gender: 'male',
     course: 'node.js',
-    completed: true
+    completed: true,
+    setName: function (name) {
+        console.log('이름 설정 : ' + name);
+    },
+    getName: function () {
+        return 'choi';
+    }
 }); // 힙메모리에 저장됨
 function setInfo(student) {
     console.log(student);
 }
 ;
-// setInfo(std);
-// console.log(getInfo(5678));
+setInfo(std); // 이제 오류 없이 작동
+console.log(getInfo(5678));
 // 함수의 데이터 타입 명시(매개변수, 리턴타입)
 // function Plus(a : number, b? : number) : number{
 //     return a + b;
@@ -65,3 +81,5 @@ var user = {
     name: 'john',
     age: 25
 };
+var anyVal = 100; // any는 아무 값을 받을 수 있음.
+anyVal = true;
