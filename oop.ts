@@ -18,15 +18,11 @@
 
 // 클래스 생성
 class Employee {
-    private _empName : string; // private를 사용하면 클래스 밖에서는 접근 불가능
-    private _age : number;
-    private _empJob : string;
-
-    constructor(empName : string, age? : number, empJob? : string) {
-        this._empName = empName; // 자기 자신의 객체
-        this._age = age;
-        this._empJob = empJob;
-
+    constructor(
+        private _empName : string,
+        private _age : number,
+        private _empJob : string
+        ){
     }
 
     // get/set

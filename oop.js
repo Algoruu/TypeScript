@@ -13,14 +13,14 @@
 // 멤버함수 == 메소드
 // 클래스 생성
 var Employee = /** @class */ (function () {
-    function Employee(empName, age, empJob) {
+    function Employee(_empName, _age, _empJob) {
         var _this = this;
+        this._empName = _empName;
+        this._age = _age;
+        this._empJob = _empJob;
         this.printEmp = function () {
             console.log(_this._empName + '의 나이는 ' + _this._age + '이고, 직업은 ' + _this._empJob + '입니다.');
         };
-        this._empName = empName; // 자기 자신의 객체
-        this._age = age;
-        this._empJob = empJob;
     }
     Object.defineProperty(Employee.prototype, "empName", {
         // get/set
