@@ -5,7 +5,6 @@ var age = 25;
 var gender = 'female';
 var course = 'Typescript';
 var completed = false;
-;
 // 열거형 : 사용자 정의 타입
 var GenderType;
 (function (GenderType) {
@@ -14,12 +13,13 @@ var GenderType;
     GenderType["GenderNeutral"] = "neutral";
 })(GenderType || (GenderType = {}));
 ;
+;
 var MyStudent = /** @class */ (function () {
     function MyStudent() {
         this.stdId = 91011;
         this.stdName = 'choi';
         this.age = 30;
-        this.gender = GenderType;
+        this.gender = 'male'; // 여기의 젠더는 MyStudent의 젠더라 오류
         this.course = 'node.js';
         this.completed = true;
     }
@@ -37,7 +37,7 @@ function getInfo(id) {
         stdId: id,
         stdName: 'kim',
         age: 25,
-        gender: GenderType.Female,
+        gender: 'female',
         course: 'javascript',
         completed: true
     };
@@ -47,7 +47,7 @@ var std = ({
     stdId: 91011,
     stdName: 'choi',
     age: 30,
-    gender: GenderType.male,
+    gender: 'male',
     course: 'node.js',
     completed: true
 }); // 힙메모리에 저장됨
@@ -55,9 +55,13 @@ function setInfo(student) {
     console.log(student);
 }
 ;
-setInfo(std);
+// setInfo(std);
 // console.log(getInfo(5678));
 // 함수의 데이터 타입 명시(매개변수, 리턴타입)
 // function Plus(a : number, b? : number) : number{
 //     return a + b;
 // }
+var user = {
+    name: 'john',
+    age: 25
+};

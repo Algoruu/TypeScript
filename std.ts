@@ -7,18 +7,6 @@ let gender : string = 'female';
 let course : string = 'Typescript';
 let completed : boolean = false;
 
-interface Student{
-    stdId : number;
-    stdName? : string;
-    age? : number;
-    gender? : string;
-    course? : string;
-    completed? : boolean;
-    // setName(name : string) : void;
-    setName : (name : string) => void;
-    getName : () => string;
-};
-
 // 열거형 : 사용자 정의 타입
 enum GenderType{
     Male = 'male',
@@ -26,11 +14,23 @@ enum GenderType{
     GenderNeutral = 'neutral'
 };
 
+interface Student{
+    stdId : number;
+    stdName? : string;
+    age? : number;
+    gender? : 'male' | 'female';
+    course? : string;
+    completed? : boolean;
+    // setName(name : string) : void;
+    setName : (name : string) => void;
+    getName : () => string;
+};
+
 class MyStudent implements Student{
     stdId = 91011;
     stdName = 'choi';
     age = 30;
-    gender = GenderType;
+    gender : 'male' | 'female' = 'male'; // 여기의 젠더는 MyStudent의 젠더라 오류
     course = 'node.js';
     completed = true;
 
@@ -50,7 +50,7 @@ function getInfo(id : number) : Student
         stdId : id,
         stdName : 'kim',
         age : 25,
-        gender : GenderType.Female,
+        gender : 'female',
         course : 'javascript',
         completed : true
     };
@@ -60,17 +60,16 @@ let std = ({
     stdId : 91011,
     stdName : 'choi',
     age : 30,
-    gender : GenderType.male,
+    gender : 'male',
     course : 'node.js',
     completed : true
 }); // 힙메모리에 저장됨
 
 function setInfo(student : Student) : void{
     console.log(student);
-
 };
 
-setInfo(std);
+// setInfo(std);
 
 // console.log(getInfo(5678));
 
@@ -80,3 +79,8 @@ setInfo(std);
 // function Plus(a : number, b? : number) : number{
 //     return a + b;
 // }
+
+const user : {name : string, age : number} = {
+    name : 'john',
+    age : 25
+}
